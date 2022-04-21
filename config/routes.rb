@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :users do
+    get 'sessions/new'
+    get 'sessions/create'
+  end
   root "home#index"
 
   get '/developer' => 'developer#index', as: "developer"

@@ -13,5 +13,4 @@
       .navbar-nav.navbar-buttons__custom
         = link_to("Рекламодателям", advertiser_path, class: "nav-item nav-link")
         = link_to("Разработчикам", developer_path, class: "nav-item nav-link")
-        a.nav-item.nav-link[href="#"]
-          | Вход / Регистрация
+        = link_to("Вход / Регистрация", new_user_session_path, class: "nav-item nav-link")

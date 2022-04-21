@@ -1,0 +1,43 @@
+- content_for :head do
+  = stylesheet_link_tag "home"
+  = javascript_import_module_tag "home"
+
+- content_for :body do
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    = link_to(root_path, class: "navbar-brand") do
+      = image_tag asset_data_uri("true_logo.svg"), size: "32x32"
+      span.brand-text__custom App Store
+    button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"]
+      span.navbar-toggler-icon
+    #navbarNavAltMarkup.collapse.navbar-collapse
+      .navbar-nav.navbar-buttons__custom
+        = link_to("Рекламодателям", advertiser_path, class: "nav-item nav-link")
+        = link_to("Разработчикам", developer_path, class: "nav-item nav-link")
+        = link_to("Вход / Регистрация", new_user_session_path, class: "nav-item nav-link active")
+
+  div.form-wrapper
+    main.form-signin
+      = form_for(resource,
+                as: resource_name,
+                url: session_path(resource_name),
+                html: {novalidate: 'novalidate'}) do |f|
+        ul.nav.nav-tabs
+          li.nav-item
+            = link_to("Вход", new_user_session_path, class: "nav-link active", "aria-current" => "page")
+          li.nav-item
+            = link_to("Регистрация", new_user_session_path,class: "nav-link")
+        div.form-floating
+          = f.email_field("email", value: "test@example.com", class: "form-control", placeholder: "Электронная почта")
+          label for="user_email"
+            | Электронная почта
+        div.form-floating
+          = f.password_field("password", value: "1234", class: "form-control", placeholder: "Пароль")
+          label for="user_password"
+            | Пароль
+        div.checkbox.mb-3
+          label
+            = f.check_box("remember_me")
+            | Запомнить меня
+        = f.submit("Войти", class: "w-100 btn btn-lg btn-primary")
+
+      = link_to("Забыли пароль?", "#", class: 'link-box margin-bottom-none')
