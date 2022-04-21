@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
-  get 'advertiser/index'
-  get 'developer/index'
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
   root "home#index"
 
   get '/developer' => 'developer#index', as: "developer"
   get '/advertiser' => 'advertiser#index', as: "advertiser"
+
+  devise_for :users, skip: %w[sessions registrations passwords confirmations]
+
+  devise_scope :user do
+    get '/sign_in' => 'users/sessions#new', as: 'new_user_session'
+    post '/sign_in' => 'users/sessions#create', as: 'user_session'
+    post '/sign_up' => 'users/registrations#create', as: 'user_registration'
+    delete '/sign_out' => 'users/sessions#destroy', as: 'destroy_user_session'
+  end
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 end
