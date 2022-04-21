@@ -8,7 +8,7 @@ $navbar-padding-x: 1rem;
 
 .navbar-buttons__custom {
   margin-left: auto;
-  margin-right: 0px;
+  margin-right: 0;
 };
 
 .form-signin {
@@ -24,4 +24,17 @@ $navbar-padding-x: 1rem;
 .form-wrapper {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.logout-form > button {
+  background: none;
+  border: none;
+}
+
+.profile-buttons {
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: row;
+  margin-left: 2rem;
+  border-radius: 0.5rem;
 }

@@ -13,5 +13,5 @@
       .navbar-nav.navbar-buttons__custom
         = link_to("Рекламодателям", advertiser_path, class: "nav-item nav-link")
         = link_to("App Store", root_path, class: "nav-item nav-link")
-        a.nav-item.nav-link[href="#"]
-          | Вход / Регистрация
+        div.profile-buttons.px-2
+          = link_to("Вход / Регистрация", "#", class: "nav-item nav-link")

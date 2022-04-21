@@ -13,4 +13,9 @@
       .navbar-nav.navbar-buttons__custom
         = link_to("Рекламодателям", advertiser_path, class: "nav-item nav-link")
         = link_to("Разработчикам", developer_path, class: "nav-item nav-link")
-        = link_to("Вход / Регистрация", new_user_session_path, class: "nav-item nav-link")
+        div.profile-buttons.px-2
+          - if user_signed_in?
+            = link_to("Профиль", "#", class: "nav-item nav-link")
+            = button_to("Выйти", destroy_user_session_path, method: :delete, class: "nav-item nav-link", form_class: "logout-form", onclick: "return confirm('Уверены, что хотите выйти?')")
+          - else
+            = link_to("Вход / Регистрация", new_user_session_path, class: "nav-item nav-link")
