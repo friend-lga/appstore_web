@@ -1,0 +1,17 @@
+- content_for :head do
+  = stylesheet_link_tag "home"
+  = javascript_import_module_tag "home"
+
+- content_for :body do
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    = link_to(root_path, class: "navbar-brand") do
+      = image_tag asset_data_uri("true_logo.svg"), size: "32x32"
+      span.brand-text__custom App Store
+    button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"]
+      span.navbar-toggler-icon
+    #navbarNavAltMarkup.collapse.navbar-collapse
+      .navbar-nav.navbar-buttons__custom
+        = link_to("Рекламодателям", advertiser_path, class: "nav-item nav-link")
+        = link_to("Разработчикам", developer_path, class: "nav-item nav-link")
+        a.nav-item.nav-link[href="#"]
+          | Вход / Регистрация
