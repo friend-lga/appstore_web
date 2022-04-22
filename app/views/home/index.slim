@@ -6,14 +6,14 @@
   nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
     = link_to(root_path, class: "navbar-brand") do
       = image_tag asset_data_uri("true_logo.svg"), size: "32x32"
-      span.brand-text__custom App Store
+      span.ps-2 App Store
     button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"]
       span.navbar-toggler-icon
     #navbarNavAltMarkup.collapse.navbar-collapse
-      .navbar-nav.navbar-buttons__custom
+      .navbar-nav.ms-auto.mr-0
         = link_to("Рекламодателям", advertiser_path, class: "nav-item nav-link")
         = link_to("Разработчикам", developer_path, class: "nav-item nav-link")
-        div.profile-buttons.px-2
+        div.profile-buttons.px-2.ms-5
           - if user_signed_in?
             = link_to("Профиль", "#", class: "nav-item nav-link")
             = button_to("Выйти", destroy_user_session_path, method: :delete, class: "nav-item nav-link", form_class: "logout-form", onclick: "return confirm('Уверены, что хотите выйти?')")

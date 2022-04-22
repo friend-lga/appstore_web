@@ -23,9 +23,9 @@
   div.my-block__center.my-5.p-3
     ul.nav.nav-pills.nav-justified.mb-3 id="ex1" role="tablist"
       li.nav-item role="presentation"
-        = link_to("Вход", new_user_session_path, class: "nav-link active", "aria-selected" => "true")
+        = link_to("Вход", new_user_session_path, class: "nav-link", "aria-selected" => "false")
       li.nav-item
-        = link_to("Регистрация", new_user_registration_path, class: "nav-link", "aria-selected" => "false")
+        = link_to("Регистрация", new_user_registration_path, class: "nav-link active", "aria-selected" => "true")
 
     - if flash[:alert].present?
       div.alert.alert-danger.d-flex.align-items-center role="alert"
@@ -39,7 +39,7 @@
 
     .text-center.mb-3
       p
-        | Войти с помощью:
+        | Зарегистрироваться с помощью:
       button.btn.btn-link.btn-floating.mx-1[type="button"]
         i.bi.bi-facebook
       button.btn.btn-link.btn-floating.mx-1[type="button"]
@@ -55,31 +55,35 @@
 
     = form_with(model: resource,
               as: resource_name,
-              url: session_path(resource_name),
+              url: registration_path(resource_name),
               html: {novalidate: 'novalidate'}) do |f|
       div.form-floating.mb-2
-        = f.email_field("email", value: "user@example.com", class: "form-control", placeholder: "Электронная почта")
+        = f.email_field("email", class: "form-control", placeholder: "Электронная почта")
         label.form-label for="user_email"
           | Электронная почта
       div.form-floating.mb-2
-        = f.password_field("password", value: "1234", class: "form-control", placeholder: "Пароль")
+        = f.text_field("username", class: "form-control", placeholder: "Имя")
+        label.form-label for="user_username"
+          | Имя
+      div.form-floating.mb-2
+        = f.password_field("password", class: "form-control", placeholder: "Пароль")
         label.form-label for="user_password"
           | Пароль
-      div.row.mb-4
-        div.col-md-6.d-flex.justify-content-center
-          div.form-check.mb-2.mb-md-0
-            = f.check_box("remember_me", class: "form-check-input", checked: true)
-            label.form-check-label[for="user_remember_me"]
-              | Запомнить меня
-        div.col-md-6.d-flex.justify-content-center
-          = link_to("Забыли пароль?", "#")
-      = f.submit("Войти", class: "btn btn-lg btn-primary w-100")
+      div.form-floating.mb-2
+        = f.password_field("password_confirmation", class: "form-control", placeholder: "Повторите пароль")
+        label.form-label for="user_password_confirmation"
+          | Повторите пароль
+      div.form-check.justify-content-center.mb-4
+        = f.check_box("consent", class: "form-check-input", checked: true)
+        label.form-check-label[for="user_consent"]
+          | Я прочитал и согласен с условиями использования
+      = f.submit("Зарегистрироваться", class: "btn btn-lg btn-primary w-100")
 
   div.my-block__info.my-5.p-3
-    | Экран входа обычных пользователей. Они могут войти либо через подключенные социальные сети, или же стандартно, по почте и паролю.
+    | Экран регистрации обычных пользователей. Они могут зарегистрироваться либо с помощью социальных сетей, или же стандартно, по почте и паролю.
     br
     br
-    | Возможность входа через социальные сети и восстановление пароля в прототипе не предусмотрены.
+    | Возможность регистрации через социальные сети, подтверждение об успешной регистрации, капча и текст условий использования в прототипе не предусмотрены.
     br
     br
     | Дизайн и функционал сайта не финальные. Это прототип.

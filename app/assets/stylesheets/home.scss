@@ -1,29 +1,28 @@
 $navbar-padding-x: 1rem;
 
 @import "bootstrap";
+@import "bootstrap-icons";
 
-.brand-text__custom {
-  padding-left: 0.5rem;
-};
-
-.navbar-buttons__custom {
-  margin-left: auto;
-  margin-right: 0;
-};
-
-.form-signin {
+.my-block__center {
   width: 100%;
-  max-width: 330px;
-  padding: 15px;
+  max-width: 400px;
   margin: auto;
   border-radius: 1rem;
   border: 1px solid lightgray;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.form-wrapper {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+.my-block__info {
+  width: 100%;
+  max-width: 640px;
+  margin: auto;
+  border-radius: 1rem;
+  border: 2px dashed lightgray;
+  color: rgb(100, 100, 100);
+}
+
+.my-block__center > .error-messages {
+  display: none;
 }
 
 .logout-form > button {
@@ -35,6 +34,5 @@ $navbar-padding-x: 1rem;
   background-color: rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: row;
-  margin-left: 2rem;
   border-radius: 0.5rem;
 }

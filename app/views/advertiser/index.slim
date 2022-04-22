@@ -6,12 +6,12 @@
   nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
     = link_to(advertiser_path, class: "navbar-brand") do
       = image_tag asset_data_uri("true_logo.svg"), size: "32x32"
-      span.brand-text__custom Рекламодатель
+      span.ps-2 Рекламодатель
     button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"]
       span.navbar-toggler-icon
     #navbarNavAltMarkup.collapse.navbar-collapse
-      .navbar-nav.navbar-buttons__custom
+      .navbar-nav.ms-auto.mr-0
         = link_to("Разработчикам", developer_path, class: "nav-item nav-link")
         = link_to("App Store", root_path, class: "nav-item nav-link")
-        div.profile-buttons.px-2
+        div.profile-buttons.px-2.ms-5
           = link_to("Вход / Регистрация", "#", class: "nav-item nav-link")

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   namespace :users do
+    get 'registration/new'
+    get 'registration/create'
     get 'sessions/new'
     get 'sessions/create'
   end
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/sign_in' => 'users/sessions#new', as: 'new_user_session'
     post '/sign_in' => 'users/sessions#create', as: 'user_session'
+    get '/sign_up' => 'users/registrations#new', as: 'new_user_registration'
     post '/sign_up' => 'users/registrations#create', as: 'user_registration'
     delete '/sign_out' => 'users/sessions#destroy', as: 'destroy_user_session'
   end
