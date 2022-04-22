@@ -20,5 +20,7 @@ module Appstore
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag.html_safe }
+
+    config.i18n.default_locale = :ru
   end
 end
