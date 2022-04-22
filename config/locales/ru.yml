@@ -61,3 +61,6 @@ ru:
       password: пароль
       password_confirmation: подтверждение пароля
       consent: согласие
+  time:
+    formats:
+      long: "%Y-%m-%d %H:%M:%S"

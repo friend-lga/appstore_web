@@ -62,3 +62,6 @@ en:
       password: password
       password_confirmation: password confirmation
       consent: consent
+  time:
+    formats:
+      long: "%Y-%m-%d %H:%M:%S"
