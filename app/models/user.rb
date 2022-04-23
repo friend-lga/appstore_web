@@ -8,11 +8,11 @@ class User < ApplicationRecord
 
   attr_accessor :consent
 
-  validates :username, presence: true, uniqueness: {case_sensitive: false}, on: :create
+  validates :name, presence: true, uniqueness: {case_sensitive: false}, on: :create
   validates :consent, presence: true, acceptance: true, on: :create
 
   def nickname_uniqueness
-    errors.add(:username, :taken) if User.find_by('LOWER(username) = LOWER(?)', self.username).present?
+    errors.add(:name, :taken) if User.find_by('LOWER(name) = LOWER(?)', self.name).present?
   end
 
 end

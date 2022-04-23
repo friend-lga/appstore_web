@@ -55,9 +55,10 @@ ru:
         too_short: длина должна быть больше %{count}
         wrong_length: длина должна быть равна %{count}
         other_than: должно отличаться от %{count}
+        record_invalid: неверная запись
     attributes:
       email: электронная почта
-      username: имя
+      name: имя
       password: пароль
       password_confirmation: подтверждение пароля
       consent: согласие

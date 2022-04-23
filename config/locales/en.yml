@@ -56,9 +56,10 @@ en:
         too_short: length must be longer than %{count}
         wrong_length: length must be equal to %{count}
         other_than: must be other than %{count}
+        record_invalid: record is invalid
     attributes:
       email: email
-      username: name
+      name: name
       password: password
       password_confirmation: password confirmation
       consent: consent

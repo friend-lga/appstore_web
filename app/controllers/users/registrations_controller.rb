@@ -14,7 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def permitted_params
     [:email,
-     :username,
+     :name,
      :password,
      :password_confirmation,
      :consent]
