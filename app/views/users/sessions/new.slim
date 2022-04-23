@@ -1,35 +1,7 @@
-- content_for :head do
-  = stylesheet_link_tag "home"
-  = javascript_import_module_tag "home"
+- @login_active = true
+- @should_show_prototype_info = true
 
 - content_for :body do
-  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-    .container-fluid
-      = link_to(root_path, class: "navbar-brand") do
-        = image_tag asset_data_uri("true_logo.svg"), size: "32x32"
-      button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
-        span.navbar-toggler-icon
-      #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.me-auto.mb-2.mb-lg-0
-          li.nav-item
-            = link_to("App Store", root_path, class: "nav-link")
-          li.nav-item
-            = link_to("Разработчикам", developer_path, class: "nav-link")
-          li.nav-item
-            = link_to("Рекламодателям", advertiser_path, class: "nav-link")
-          li.nav-item
-            = link_to("Панель управления", admin_root_path, class: "nav-link")
-        div.navbar-nav.ms-auto.mb-2.mb-lg-0
-          div.profile-buttons.px-2
-            - if user_signed_in?
-              div.nav-item.ms-0.me-auto
-                = link_to("Профиль", "#", class: "nav-link")
-              div.nav-item.ms-auto.me-0
-                = button_to("Выйти", destroy_user_session_path, method: :delete, class: "nav-link", form_class: "logout-form", onclick: "return confirm('Уверены, что хотите выйти?')")
-            - else
-              div.nav-item
-                = link_to("Вход / Регистрация", new_user_session_path, class: "nav-link active")
-
   div.my-block__center.my-5.p-3
     ul.nav.nav-pills.nav-justified.mb-3 id="ex1" role="tablist"
       li.nav-item role="presentation"
@@ -85,11 +57,8 @@
           = link_to("Забыли пароль?", "#")
       = f.submit("Войти", class: "btn btn-lg btn-primary w-100")
 
-  div.my-block__info.my-5.p-3
-    | Экран входа обычных пользователей. Они могут войти либо через подключенные социальные сети, или же стандартно, по почте и паролю.
-    br
-    br
-    | Возможность входа через социальные сети и восстановление пароля в прототипе не предусмотрены.
-    br
-    br
-    | Дизайн и функционал сайта не финальные. Это прототип.
+- content_for :prototype_info do
+  | Экран входа обычных пользователей. Они могут войти либо через подключенные социальные сети, или же стандартно, по почте и паролю.
+  br
+  br
+  | Возможность входа через социальные сети и восстановление пароля в прототипе не предусмотрены.

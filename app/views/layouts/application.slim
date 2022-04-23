@@ -8,5 +8,45 @@ html
     = stylesheet_link_tag "application"
     = javascript_importmap_tags
     == yield :head
-  body
-    == yield :body
+  body.d-flex.flex-column.h-100
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      div.container-fluid
+        = link_to(root_path, class: "navbar-brand") do
+          = image_tag asset_data_uri("true_logo.svg"), size: "32x32"
+        button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
+          span.navbar-toggler-icon
+        div#navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.me-auto.mb-2.mb-lg-0
+            li.nav-item
+              = link_to("App Store", root_path, class: "nav-link #{"active" if @root_active}")
+            li.nav-item
+              = link_to("Разработчикам", developer_path, class: "nav-link #{"active" if @dev_active}")
+            li.nav-item
+              = link_to("Рекламодателям", advertiser_path, class: "nav-link #{"active" if @adv_active}")
+            li.nav-item
+              = link_to("Панель управления", admin_root_path, class: "nav-link #{"active" if @admin_active}")
+          div.navbar-nav.ms-auto.mb-2.mb-lg-0
+            div.profile-buttons.px-2
+              - if user_signed_in?
+                div.nav-item.ms-0.me-auto
+                  = link_to("Профиль", "#", class: "nav-link")
+                div.nav-item.ms-auto.me-0
+                  = button_to("Выйти", destroy_user_session_path, method: :delete, class: "nav-link", form_class: "logout-form", onclick: "return confirm('Уверены, что хотите выйти?')")
+              - else
+                div.nav-item
+                  = link_to("Вход / Регистрация", new_user_session_path, class: "nav-link #{"active" if @login_active}")
+    main.main
+      == yield :body
+    footer.footer.mt-auto
+      - if @should_show_prototype_info
+        div.my-block__prototype-info.p-3.my-3
+          div.container
+            == yield :prototype_info
+      div.my-block__footer
+        div.container
+          div.text-center.p-3
+            | Данная версия сайта является прототипом.
+            br
+            | Дизайн и функционал сайта не финальные.
+            br
+            | © 2022 ООО "ТРУ Технологии".
