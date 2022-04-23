@@ -4,14 +4,28 @@
 
 - content_for :body do
   nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-    = link_to(developer_path, class: "navbar-brand") do
-      = image_tag asset_data_uri("true_logo.svg"), size: "32x32"
-      span.ps-2 Разработчик
-    button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"]
-      span.navbar-toggler-icon
-    #navbarNavAltMarkup.collapse.navbar-collapse
-      .navbar-nav.ms-auto.mr-0
-        = link_to("Рекламодателям", advertiser_path, class: "nav-item nav-link")
-        = link_to("App Store", root_path, class: "nav-item nav-link")
-        div.profile-buttons.px-2.ms-5
-          = link_to("Вход / Регистрация", "#", class: "nav-item nav-link")
+    .container-fluid
+      = link_to(root_path, class: "navbar-brand") do
+        = image_tag asset_data_uri("true_logo.svg"), size: "32x32"
+      button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.me-auto.mb-2.mb-lg-0
+          li.nav-item
+            = link_to("App Store", root_path, class: "nav-link")
+          li.nav-item
+            = link_to("Разработчикам", developer_path, class: "nav-link active")
+          li.nav-item
+            = link_to("Рекламодателям", advertiser_path, class: "nav-link")
+          li.nav-item
+            = link_to("Панель управления", admin_root_path, class: "nav-link")
+        div.navbar-nav.ms-auto.mb-2.mb-lg-0
+          div.profile-buttons.px-2
+            - if user_signed_in?
+              div.nav-item.ms-0.me-auto
+                = link_to("Профиль", "#", class: "nav-link")
+              div.nav-item.ms-auto.me-0
+                = button_to("Выйти", destroy_user_session_path, method: :delete, class: "nav-link", form_class: "logout-form", onclick: "return confirm('Уверены, что хотите выйти?')")
+            - else
+              div.nav-item
+                = link_to("Вход / Регистрация", new_user_session_path, class: "nav-link")
