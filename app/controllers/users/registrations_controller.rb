@@ -17,6 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      :name,
      :password,
      :password_confirmation,
+     :role,
      :consent]
   end
 end
