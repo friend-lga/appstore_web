@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     post '/sign_in' => 'users/sessions#create', as: 'user_session'
     get '/sign_up' => 'users/registrations#new', as: 'new_user_registration'
     post '/sign_up' => 'users/registrations#create', as: 'user_registration'
-    delete '/sign_out' => 'users/sessions#destroy', as: 'destroy_user_session'
+    match '/sign_out' => 'users/sessions#destroy', as: 'destroy_user_session', via: [:get, :delete]
   end
 
   ActiveAdmin.routes(self)
