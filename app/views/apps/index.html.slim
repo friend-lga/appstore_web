@@ -1,12 +1,25 @@
 - content_for :main do
-  p style="color: green" = notice
+  div.container.my-3
+    = render "shared/apps_navigation"
 
-  h1 Apps
+    div.d-flex.my-2
+      h1.text-left.text-wrap.me-auto.my-0
+        = @title
 
-  #apps
-    - @apps.each do |app|
-      == render app
-      p
-        = link_to "Show this app", app
+    form.d-flex.my-3
+      input.my-mod-round-corners.form-control.me-2 type="search" placeholder="Поиск" aria-label="Поиск"
+      button.my-mod-round-corners.btn.btn-outline-primary type="submit" Поиск
 
-  = link_to "New app", new_app_path
+    div.apps-section.my-3
+      div.row.row-cols-auto.mx-0.my-3
+        - @apps.shuffle.each do |app|
+          = render "shared/app_card", app: app
+        - @apps.shuffle.each do |app|
+          = render "shared/app_card", app: app
+        - @apps.shuffle.each do |app|
+          = render "shared/app_card", app: app
+        - @apps.shuffle.each do |app|
+          = render "shared/app_card", app: app
+        - @apps.shuffle.each do |app|
+          = render "shared/app_card", app: app
+          / = link_to "Show this app", app

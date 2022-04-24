@@ -1,0 +1,23 @@
+div.apps-navigation.d-flex
+  div.btn-group.ms-auto.me-auto role="group" aria-label="Basic outlined example"
+    = link_to('Все приложения', apps_path(title: 'Все приложения'), class: 'apps-navigation__button btn btn-primary')
+    = link_to('Игры', apps_path(title: 'Игры'), class: 'apps-navigation__button btn btn-primary')
+    div.apps-navigation__button.btn-group role="group"
+      button#btnGroupDrop1.btn.btn-primary.dropdown-toggle type="button" data-bs-toggle="dropdown" aria-expanded="false" Категории
+      ul.dropdown-menu aria-labelledby="btnGroupDrop1"
+        li
+          = link_to('Музыка', apps_path(title: 'Музыка'), class: 'dropdown-item')
+        li
+          = link_to('Видео', apps_path(title: 'Видео'), class: 'dropdown-item')
+        li
+          = link_to('Фото', apps_path(title: 'Фото'), class: 'dropdown-item')
+        li
+          = link_to('Креативность', apps_path(title: 'Креативность'), class: 'dropdown-item')
+        li
+          = link_to('Искусство', apps_path(title: 'Искусство'), class: 'dropdown-item')
+        li
+          = link_to('Навигация', apps_path(title: 'Навигация'), class: 'dropdown-item')
+        li
+          = link_to('Финансы', apps_path(title: 'Финансы'), class: 'dropdown-item')
+        li
+          = link_to('Наука', apps_path(title: 'Наука'), class: 'dropdown-item')

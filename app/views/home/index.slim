@@ -39,104 +39,58 @@
         span.carousel-control-next-icon aria-hidden="true"
         span.visually-hidden Next
 
-    div.apps-navigation.d-flex
-      div.btn-group.ms-auto.me-auto role="group" aria-label="Basic outlined example"
-        a.apps-navigation__button.btn.btn-primary href="#" Все приложения
-        a.apps-navigation__button.btn.btn-primary href="#" Игры
-        div.apps-navigation__button.btn-group role="group"
-          button#btnGroupDrop1.btn.btn-primary.dropdown-toggle type="button" data-bs-toggle="dropdown" aria-expanded="false" Категории
-          ul.dropdown-menu aria-labelledby="btnGroupDrop1"
-            li
-              a.dropdown-item href="#" Музыка
-            li
-              a.dropdown-item href="#" Видео
-            li
-              a.dropdown-item href="#" Фото
-            li
-              a.dropdown-item href="#" Креативность
-            li
-              a.dropdown-item href="#" Искусство
-            li
-              a.dropdown-item href="#" Навигация
-            li
-              a.dropdown-item href="#" Финансы
+    = render "shared/apps_navigation"
 
     form.d-flex.my-3
       input.my-mod-round-corners.form-control.me-2 type="search" placeholder="Поиск" aria-label="Поиск"
-      button.my-mod-round-corners.btn.btn-outline-primary type="submit" Поиск
+      button.my-mod-round-corners.btn.btn-outline-primary type="submit" Искать
 
     div.apps-section.my-3
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Спонсорские предложения
-        a.my-link.btn.ms-auto.mb-auto href="#" Открыть все
+        = link_to('Открыть все', apps_path(title: 'Спонсорские предложения'), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
+        - App.all.shuffle.take(8).each do |app|
+          = render "shared/app_card", app: app
 
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Новинки
-        a.my-link.btn.ms-auto.mb-auto href="#" Открыть все
+        = link_to('Открыть все', apps_path(title: 'Новинки'), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
+        - App.all.shuffle.take(4).each do |app|
+          = render "shared/app_card", app: app
 
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Выбор редакции
-        a.my-link.btn.ms-auto.mb-auto href="#" Открыть все
+        = link_to('Открыть все', apps_path(title: 'Выбор редакции'), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
+        - App.all.shuffle.take(8).each do |app|
+          = render "shared/app_card", app: app
 
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Популярные приложения
-        a.my-link.btn.ms-auto.mb-auto href="#" Открыть все
+        = link_to('Открыть все', apps_path(title: 'Популярные приложения'), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
+        - App.all.shuffle.take(8).each do |app|
+          = render "shared/app_card", app: app
 
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Топ за день
-        a.my-link.btn.ms-auto.mb-auto href="#" Открыть все
+        = link_to('Открыть все', apps_path(title: 'Топ за день'), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
+        - App.all.shuffle.take(4).each do |app|
+          = render "shared/app_card", app: app
 
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Топ за неделю
-        a.my-link.btn.ms-auto.mb-auto href="#" Открыть все
+        = link_to('Открыть все', apps_path(title: 'Топ за неделю'), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
+        - App.all.shuffle.take(4).each do |app|
+          = render "shared/app_card", app: app
 
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Топ за месяц
-        a.my-link.btn.ms-auto.mb-auto href="#" Открыть все
+        = link_to('Открыть все', apps_path(title: 'Топ за месяц'), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
-        = render "app_card"
+        - App.all.shuffle.take(4).each do |app|
+          = render "shared/app_card", app: app

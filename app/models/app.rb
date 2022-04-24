@@ -7,7 +7,7 @@ class App < ApplicationRecord
   validates :description, presence: true, on: :create
   validates :version, presence: true, on: :create
 
-  enum category: {games: 0, music: 1, video: 2, photo: 3, creativity: 4, art: 5, navigation: 6, financial: 7}
+  enum category: {games: 0, music: 1, video: 2, photo: 3, creativity: 4, art: 5, navigation: 6, financial: 7, science: 8}
   enum tags: {tag1: 0, tag2: 1, tag3: 2, tag4: 3}
 
   def categories
@@ -40,6 +40,8 @@ class App < ApplicationRecord
       return 'Навигация'
     when 'financial'
       return 'Финансы'
+    when 'science'
+      return 'Наука'
     end
   end
 
