@@ -11,15 +11,15 @@ class App < ApplicationRecord
   enum tags: {tag1: 0, tag2: 1, tag3: 2, tag4: 3}
 
   def categories
-    result = [categories.sample]
-    result.append(categories.except(result).sample)
-    return result
+    # result = [categories.sample]
+    # result.append(categories.except(result).sample)
+    # return result
   end
 
   def tags
-    result = [tags.sample]
-    result.append(tags.except(result).sample)
-    return result
+    # result = [tags.sample]
+    # result.append(tags.except(result).sample)
+    # return result
   end
 
   def self.category_name(category)

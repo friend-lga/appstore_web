@@ -1,0 +1,12 @@
+- content_for :main do
+  p style="color: green" = notice
+
+  h1 Apps
+
+  #apps
+    - @apps.each do |app|
+      == render app
+      p
+        = link_to "Show this app", app
+
+  = link_to "New app", new_app_path

@@ -1,0 +1,11 @@
+- content_for :main do
+  p style="color: green" = notice
+
+  == render @app
+
+  div
+    => link_to "Edit this app", edit_app_path(@app)
+    '|
+    =< link_to "Back to apps", apps_path
+
+    = button_to "Destroy this app", @app, method: :delete

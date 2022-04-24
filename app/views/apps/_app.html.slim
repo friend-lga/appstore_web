@@ -1,0 +1,34 @@
+div id="#{dom_id app}"
+  p
+    strong Id:
+    =< app.id
+  p
+    strong Title:
+    =< app.title
+  p
+    strong Description:
+    =< app.description
+  p
+    strong Version:
+    =< app.version
+  p
+    strong Icon:
+    = link_to app.icon.filename, app.icon if app.icon.attached?
+  p
+    strong Package:
+    = link_to app.package.filename, app.package if app.package.attached?
+  p
+    strong User:
+    =< app.user_id
+  p
+    strong Category:
+    =< app.category
+  p
+    strong Tags:
+    =< app.tags
+  p
+    strong Created at:
+    =< app.created_at
+  p
+    strong Updated at:
+    =< app.updated_at

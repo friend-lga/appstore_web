@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  resources :apps
   root "home#index"
 
   get '/developer' => 'developer#index', as: "developer"
   get '/advertiser' => 'advertiser#index', as: "advertiser"
+
+  resource :app, only: [:index, :show]
 
   devise_for :users, skip: %w[sessions registrations passwords confirmations]
 

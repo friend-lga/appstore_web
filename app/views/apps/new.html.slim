@@ -1,0 +1,9 @@
+- content_for :main do
+  h1 New app
+
+  == render "form", app: @app
+
+  br
+
+  div
+    = link_to "Back to apps", apps_path
