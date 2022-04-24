@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
 
+  has_many :apps
+
   attr_accessor :consent, :role
 
   enum role: {admin: 0, user: 1, developer: 2, advertiser: 3}
