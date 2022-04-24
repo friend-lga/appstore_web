@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "bootstrap-icons";
+@import "bootstrap/variables";
 
 // Main
 
@@ -89,4 +90,81 @@ footer {
   display: flex;
   flex-direction: row;
   border-radius: 0.5rem;
+}
+
+// Carousel
+
+.my-carousel__placeholder-img {
+  font-size: 2rem;
+  text-anchor: middle;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .my-carousel__placeholder-img-lg {
+    font-size: 3.5rem !important;
+  }
+}
+
+.carousel {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+// Cards
+
+.my-card {
+  border-radius: 0.5rem;
+  border: none;
+  overflow: hidden;
+  outline: 1px solid $color-border-block;
+  cursor: pointer;
+
+  transition: all .1s;
+
+  &:hover {
+    transform: scale(1.025);
+    box-shadow: $shadow;
+    outline: 1px solid $color-border-content;
+    z-index: 1000;
+  }
+
+  @media (min-width: 0px) {
+    & {
+      width: 19.7rem;
+    }
+  }
+
+  @media (min-width: 992px) {
+    & {
+      width: 19rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    & {
+      width: 19.7rem;
+    }
+  }
+}
+
+.my-card__placeholder-img {
+  font-size: 0.8rem;
+  text-anchor: middle;
+  user-select: none;
+  border-radius: 0;
+  width: 64px;
+  min-width: 64px;
+  height: 64px;
+  min-height: 64px;
+}
+
+.my-card__description {
+  font-size: 0.8rem;
+  color: $color-text-dark;
+  line-height: 1.2;
+}
+
+.my-card__button {
+  font-size: 0.8rem;
 }

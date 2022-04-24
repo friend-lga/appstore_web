@@ -1,69 +1,70 @@
 - @login_active = true
 - @should_show_prototype_info = true
 
-- content_for :body do
-  div.my-block__center.my-5.p-3
-    ul.nav.nav-pills.nav-justified.mb-3 id="ex1" role="tablist"
-      li.nav-item role="presentation"
-        = link_to("Вход", new_user_session_path, class: "nav-link", "aria-selected" => "false")
-      li.nav-item
-        = link_to("Регистрация", new_user_registration_path, class: "nav-link active", "aria-selected" => "true")
+- content_for :main do
+  div.container
+    div.my-block__center.my-5.p-3
+      ul.nav.nav-pills.nav-justified.mb-3 id="ex1" role="tablist"
+        li.nav-item role="presentation"
+          = link_to("Вход", new_user_session_path, class: "nav-link", "aria-selected" => "false")
+        li.nav-item
+          = link_to("Регистрация", new_user_registration_path, class: "nav-link active", "aria-selected" => "true")
 
-    - if flash[:alert].present?
-      div.alert.alert-danger.d-flex.align-items-center role="alert"
-        = flash[:alert]
-    - if resource.errors.messages.present?
-      div.alert.alert-danger.d-flex.align-items-center role="alert"
-        - resource.errors.messages.each do |field, messages|
-          - messages.each do |message|
-            = "#{field}: #{message}"
-            br
+      - if flash[:alert].present?
+        div.alert.alert-danger.d-flex.align-items-center role="alert"
+          = flash[:alert]
+      - if resource.errors.messages.present?
+        div.alert.alert-danger.d-flex.align-items-center role="alert"
+          - resource.errors.messages.each do |field, messages|
+            - messages.each do |message|
+              = "#{field}: #{message}"
+              br
 
-    .text-center.mb-3
-      p
-        | Зарегистрироваться с помощью:
-      button.btn.btn-link.btn-floating.mx-1[type="button"]
-        i.bi.bi-facebook
-      button.btn.btn-link.btn-floating.mx-1[type="button"]
-        i.bi.bi-google
-      button.btn.btn-link.btn-floating.mx-1[type="button"]
-        i.bi.bi-twitter
-      button.btn.btn-link.btn-floating.mx-1[type="button"]
-        i.bi.bi-github
-      button.btn.btn-link.btn-floating.mx-1[type="button"]
-        i.bi.bi-apple
-      p
-        | или:
+      .text-center.mb-3
+        p
+          | Зарегистрироваться с помощью:
+        button.btn.btn-link.btn-floating.mx-1[type="button"]
+          i.bi.bi-facebook
+        button.btn.btn-link.btn-floating.mx-1[type="button"]
+          i.bi.bi-google
+        button.btn.btn-link.btn-floating.mx-1[type="button"]
+          i.bi.bi-twitter
+        button.btn.btn-link.btn-floating.mx-1[type="button"]
+          i.bi.bi-github
+        button.btn.btn-link.btn-floating.mx-1[type="button"]
+          i.bi.bi-apple
+        p
+          | или:
 
-    = form_with(model: resource,
-              as: resource_name,
-              url: registration_path(resource_name),
-              html: {novalidate: 'novalidate'}) do |f|
-      div.form-floating.mb-2
-        = f.email_field("email", class: "form-control", placeholder: "Электронная почта")
-        label.form-label for="user_email"
-          | Электронная почта
-      div.form-floating.mb-2
-        = f.text_field("name", class: "form-control", placeholder: "Имя")
-        label.form-label for="user_name"
-          | Имя
-      div.form-floating.mb-2
-        = f.password_field("password", class: "form-control", placeholder: "Пароль")
-        label.form-label for="user_password"
-          | Пароль
-      div.form-floating.mb-2
-        = f.password_field("password_confirmation", class: "form-control", placeholder: "Повторите пароль")
-        label.form-label for="user_password_confirmation"
-          | Повторите пароль
-      div.form-floating.mb-2
-        = f.select("role", User.role_names, { include_blank: false, selected: User.roles[:user] }, { class: "form-select", placeholder: "Выберите роль" })
-        label.form-label for="user_role"
-          | Выберите роль
-      div.form-check.justify-content-center.mb-4
-        = f.check_box("consent", class: "form-check-input", checked: true)
-        label.form-check-label[for="user_consent"]
-          | Я прочитал и согласен с условиями использования
-      = f.submit("Зарегистрироваться", class: "btn btn-lg btn-primary w-100")
+      = form_with(model: resource,
+                as: resource_name,
+                url: registration_path(resource_name),
+                html: {novalidate: 'novalidate'}) do |f|
+        div.form-floating.mb-2
+          = f.email_field("email", class: "form-control", placeholder: "Электронная почта")
+          label.form-label for="user_email"
+            | Электронная почта
+        div.form-floating.mb-2
+          = f.text_field("name", class: "form-control", placeholder: "Имя")
+          label.form-label for="user_name"
+            | Имя
+        div.form-floating.mb-2
+          = f.password_field("password", class: "form-control", placeholder: "Пароль")
+          label.form-label for="user_password"
+            | Пароль
+        div.form-floating.mb-2
+          = f.password_field("password_confirmation", class: "form-control", placeholder: "Повторите пароль")
+          label.form-label for="user_password_confirmation"
+            | Повторите пароль
+        div.form-floating.mb-2
+          = f.select("role", User.role_names, { include_blank: false, selected: User.roles[:user] }, { class: "form-select", placeholder: "Выберите роль" })
+          label.form-label for="user_role"
+            | Выберите роль
+        div.form-check.justify-content-center.mb-4
+          = f.check_box("consent", class: "form-check-input", checked: true)
+          label.form-check-label[for="user_consent"]
+            | Я прочитал и согласен с условиями использования
+        = f.submit("Зарегистрироваться", class: "btn btn-lg btn-primary w-100")
 
 - content_for :prototype_info do
   | Экран регистрации обычных пользователей. Они могут зарегистрироваться либо с помощью социальных сетей, или же стандартно, по почте и паролю.

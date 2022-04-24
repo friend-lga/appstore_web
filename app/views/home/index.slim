@@ -1,1 +1,108 @@
 - @root_active = true
+
+- content_for :main
+  div.container.my-3
+    #carouselExampleCaptions.carousel.slide.my-3 data-bs-ride="carousel"
+      .carousel-indicators
+        button.active aria-current="true" aria-label=("Slide 1") data-bs-slide-to="0" data-bs-target="#carouselExampleCaptions" type="button"
+        button aria-label=("Slide 2") data-bs-slide-to="1" data-bs-target="#carouselExampleCaptions" type="button"
+        button aria-label=("Slide 3") data-bs-slide-to="2" data-bs-target="#carouselExampleCaptions" type="button"
+      .carousel-inner
+        .carousel-item.active
+          svg.my-carousel__placeholder-img.my-carousel__placeholder-img-lg.d-block.w-100 aria-label=("Placeholder: Первый слайд") focusable="false" height="400" preserveaspectratio=("xMidYMid slice") role="img" width="800" xmlns="http://www.w3.org/2000/svg"
+            title Placeholder
+            rect fill="#777" height="100%" width="100%"
+            text dy=".3em" fill="#555" x="50%" y="50%"  Первый слайд
+          .carousel-caption.d-none.d-md-block
+            h5 Первая реклама / новость
+            p Более подробное описание данной рекламы / новости.
+        .carousel-item
+          svg.my-carousel__placeholder-img.my-carousel__placeholder-img-lg.d-block.w-100 aria-label=("Placeholder: Второй слайд") focusable="false" height="400" preserveaspectratio=("xMidYMid slice") role="img" width="800" xmlns="http://www.w3.org/2000/svg"
+            title Placeholder
+            rect fill="#777" height="100%" width="100%"
+            text dy=".3em" fill="#555" x="50%" y="50%"  Второй слайд
+          .carousel-caption.d-none.d-md-block
+            h5 Вторая реклама / новость
+            p Более подробное описание данной рекламы / новости.
+        .carousel-item
+          svg.my-carousel__placeholder-img.my-carousel__placeholder-img-lg.d-block.w-100 aria-label=("Placeholder: Третий слайд") focusable="false" height="400" preserveaspectratio=("xMidYMid slice") role="img" width="800" xmlns="http://www.w3.org/2000/svg"
+            title Placeholder
+            rect fill="#777" height="100%" width="100%"
+            text dy=".3em" fill="#555" x="50%" y="50%"  Третий слайд
+          .carousel-caption.d-none.d-md-block
+            h5 Третья реклама / новость
+            p Более подробное описание данной рекламы / новости.
+      button.carousel-control-prev data-bs-slide="prev" data-bs-target="#carouselExampleCaptions" type="button"
+        span.carousel-control-prev-icon aria-hidden="true"
+        span.visually-hidden Previous
+      button.carousel-control-next data-bs-slide="next" data-bs-target="#carouselExampleCaptions" type="button"
+        span.carousel-control-next-icon aria-hidden="true"
+        span.visually-hidden Next
+
+    div.apps-section.text-left.text-wrap.my-3
+      h2 Спонсорские предложения
+      div class="row row-cols-auto mx-0 my-3"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+
+    div.apps-section.text-left.text-wrap.my-3
+      h2 Новинки
+      div class="row row-cols-auto mx-0 my-3"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+
+    div.apps-section.text-left.text-wrap.my-3
+      h2 Выбор редакции
+      div class="row row-cols-auto mx-0 my-3"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+
+    div.apps-section.text-left.text-wrap.my-3
+      h2 Популярные приложения
+      div class="row row-cols-auto mx-0 my-3"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+
+    div.apps-section.text-left.text-wrap.my-3
+      h2 Топ за день
+      div class="row row-cols-auto mx-0 my-3"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+
+    div.apps-section.text-left.text-wrap.my-3
+      h2 Топ за неделю
+      div class="row row-cols-auto mx-0 my-3"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+
+    div.apps-section.text-left.text-wrap.my-3
+      h2 Топ за месяц
+      div class="row row-cols-auto mx-0 my-3"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"
+        = render "app_card"

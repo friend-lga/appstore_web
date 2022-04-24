@@ -36,7 +36,7 @@ html
                 div.nav-item
                   = link_to("Вход / Регистрация", new_user_session_path, class: "nav-link #{"active" if @login_active}")
     main.main
-      == yield :body
+      == yield :main
     footer.footer.mt-auto
       - if @should_show_prototype_info
         div.my-block__prototype-info.p-3.my-3
