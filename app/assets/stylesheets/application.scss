@@ -160,6 +160,15 @@ footer {
   min-height: 64px;
 }
 
+.my-card__title {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1; /* number of lines to show */
+          line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
 .my-card__description {
   font-size: 0.8rem;
   color: $color-text-dark;

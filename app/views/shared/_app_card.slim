@@ -1,13 +1,9 @@
-- app = nil unless defined? app
-
+/ = link_to "Show this app", app
 div class="col m-1 p-0"
   div.card.d-flex.flex-row.my-card
-    svg.my-card__placeholder-img.card-img-top aria-label=("Placeholder: Иконка") focusable="false" width="100%" preserveaspectratio=("xMidYMid slice") role="img" height="100%" xmlns="http://www.w3.org/2000/svg"
-      title Иконка
-      rect fill="#777" height="100%" width="100%"
-      text dy=".3em" fill="#eee" x="50%" y="50%"  Иконка
-    div.card-body.px-2.py-1
-      h6.card-title.my-0
+    = image_tag app.icon, class: 'my-card__placeholder-img card-img-top p-2'
+    div.card-body.px-0.py-1
+      h6.card-title.my-card__title.my-0
         = app.present? ? app.title : "Заголовок"
       p.card-text.my-card__description
         = app.present? ? app.description : "Краткое описание функций приложения"

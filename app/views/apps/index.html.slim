@@ -12,14 +12,5 @@
 
     div.apps-section.my-3
       div.row.row-cols-auto.mx-0.my-3
-        - @apps.shuffle.each do |app|
+        - @apps.each do |app|
           = render "shared/app_card", app: app
-        - @apps.shuffle.each do |app|
-          = render "shared/app_card", app: app
-        - @apps.shuffle.each do |app|
-          = render "shared/app_card", app: app
-        - @apps.shuffle.each do |app|
-          = render "shared/app_card", app: app
-        - @apps.shuffle.each do |app|
-          = render "shared/app_card", app: app
-          / = link_to "Show this app", app

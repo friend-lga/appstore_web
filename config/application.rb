@@ -22,5 +22,7 @@ module Appstore
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag.html_safe }
 
     config.i18n.default_locale = :ru
+
+    config.active_storage.web_image_content_types = %w(image/webp image/png image/jpg image/jpeg)
   end
 end

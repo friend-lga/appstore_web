@@ -1,26 +1,20 @@
 class App < ApplicationRecord
-  belongs_to :user
+
+  belongs_to :author, class_name: :User
   has_one_attached :icon
   has_one_attached :package
+  has_many :user_purchased_apps
+  has_many :owners, class_name: :User, through: :user_purchased_apps, inverse_of: :purchased_apps, source: :users
 
   validates :title, presence: true, on: :create
   validates :description, presence: true, on: :create
   validates :version, presence: true, on: :create
+  validates :ref_id, presence: true, uniqueness: { case_sensitive: false }, on: :create
+  validates :author, presence: true, on: :create
+  validate -> { icon.attached? }, on: :create
+  validate -> { package.attached? }, on: :create
 
-  enum category: {games: 0, music: 1, video: 2, photo: 3, creativity: 4, art: 5, navigation: 6, financial: 7, science: 8}
-  enum tags: {tag1: 0, tag2: 1, tag3: 2, tag4: 3}
-
-  def categories
-    # result = [categories.sample]
-    # result.append(categories.except(result).sample)
-    # return result
-  end
-
-  def tags
-    # result = [tags.sample]
-    # result.append(tags.except(result).sample)
-    # return result
-  end
+  enum category: {games: 0, music: 1, video: 2, photo: 3, creativity: 4, art: 5, navigation: 6, financial: 7, science: 8, shopping: 9, food: 10, medical: 11, security: 12, home: 13, tools: 14}
 
   def self.category_name(category)
     case category
@@ -49,20 +43,4 @@ class App < ApplicationRecord
     self.categories.map { |category, value| [category_name(category), value] }.to_h
   end
 
-  def self.tag_name(tag)
-    case tag
-    when 'tag1'
-      return 'Тэг первый'
-    when 'tag2'
-      return 'Тэг второй'
-    when 'tag3'
-      return 'Тэг третий'
-    when 'tag4'
-      return 'Тэг четвертый'
-    end
-  end
-
-  def self.tag_names
-    self.tags.map { |tag, value| [tag_name(tag), value] }.to_h
-  end
 end
