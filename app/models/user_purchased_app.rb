@@ -1,4 +1,4 @@
 class UserPurchasedApp < ApplicationRecord
-  belongs_to :users
-  belongs_to :apps
+  belongs_to :user
+  belongs_to :app
 end

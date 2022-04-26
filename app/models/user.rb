@@ -1,7 +1,5 @@
 class User < ApplicationRecord
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,
          :registerable,
          :rememberable,
@@ -9,19 +7,15 @@ class User < ApplicationRecord
 
   has_many :apps, inverse_of: :author, foreign_key: :author_id
   has_many :user_purchased_apps
-  has_many :purchased_apps, class_name: :App, through: :user_purchased_apps, inverse_of: :owners, source: :apps
+  has_many :purchased_apps, through: :user_purchased_apps, inverse_of: :owners, source: :app
 
-  attr_accessor :consent, :role
+  attr_accessor :consent
 
-  enum role: {admin: 0, user: 1, developer: 2, advertiser: 3}
+  enum role: %w[admin user developer advertiser]
 
-  validates :name, presence: true, uniqueness: {case_sensitive: false}, on: :create
+  validates :name, presence: true, allow_blank: false, uniqueness: {case_sensitive: false}, on: :create
   validates :consent, presence: true, acceptance: true, on: :create
-  validates :role, presence: true, inclusion: {in: roles}, on: :create
-
-  def nickname_uniqueness
-    errors.add(:name, :taken) if User.find_by('LOWER(name) = LOWER(?)', self.name).present?
-  end
+  validates :role, presence: true, inclusion: {in: User.roles.keys}, on: :create
 
   def self.role_name(role)
     case role

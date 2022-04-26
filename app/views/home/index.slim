@@ -48,49 +48,49 @@
     div.apps-section.my-3
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Спонсорские предложения
-        = link_to('Открыть все', apps_path(title: 'Спонсорские предложения'), class: 'my-link btn ms-auto mb-auto')
+        = link_to('Открыть все', apps_path(title: 'Спонсорские предложения', limit: 16), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
         - App.all.shuffle.take(8).each do |app|
           = render "shared/app_card", app: app
 
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Новинки
-        = link_to('Открыть все', apps_path(title: 'Новинки'), class: 'my-link btn ms-auto mb-auto')
+        = link_to('Открыть все', apps_path(title: 'Новинки', limit: 16), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
         - App.all.shuffle.take(4).each do |app|
           = render "shared/app_card", app: app
 
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Выбор редакции
-        = link_to('Открыть все', apps_path(title: 'Выбор редакции'), class: 'my-link btn ms-auto mb-auto')
+        = link_to('Открыть все', apps_path(title: 'Выбор редакции', limit: 16), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
         - App.all.shuffle.take(8).each do |app|
           = render "shared/app_card", app: app
 
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Популярные приложения
-        = link_to('Открыть все', apps_path(title: 'Популярные приложения'), class: 'my-link btn ms-auto mb-auto')
+        = link_to('Открыть все', apps_path(title: 'Популярные приложения', limit: 16), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
         - App.all.shuffle.take(8).each do |app|
           = render "shared/app_card", app: app
 
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Топ за день
-        = link_to('Открыть все', apps_path(title: 'Топ за день'), class: 'my-link btn ms-auto mb-auto')
+        = link_to('Открыть все', apps_path(title: 'Топ за день', limit: 16), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
         - App.all.shuffle.take(4).each do |app|
           = render "shared/app_card", app: app
 
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Топ за неделю
-        = link_to('Открыть все', apps_path(title: 'Топ за неделю'), class: 'my-link btn ms-auto mb-auto')
+        = link_to('Открыть все', apps_path(title: 'Топ за неделю', limit: 16), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
         - App.all.shuffle.take(4).each do |app|
           = render "shared/app_card", app: app
 
       div.d-flex.my-2
         h2.text-left.text-wrap.me-auto.my-0 Топ за месяц
-        = link_to('Открыть все', apps_path(title: 'Топ за месяц'), class: 'my-link btn ms-auto mb-auto')
+        = link_to('Открыть все', apps_path(title: 'Топ за месяц', limit: 16), class: 'my-link btn ms-auto mb-auto')
       div.row.row-cols-auto.mx-0.my-3
         - App.all.shuffle.take(4).each do |app|
           = render "shared/app_card", app: app
