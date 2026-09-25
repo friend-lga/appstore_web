@@ -31,3 +31,11 @@
 /config/master.key
 
 /node_modules
+
+# Common
+.DS_Store
+._*
+.Trashes
+.Spotlight-V100
+Thumbs.db
+*.tmp
